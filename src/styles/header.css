@@ -1,0 +1,78 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 3px 0;
+  gap: 10px;
+}
+
+.header .home_btn,
+.header .restart_btn {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+}
+
+.header .home_btn img,
+.header .restart_btn img {
+  width: 20px;
+}
+
+.header .home_btn span,
+.header .restart_btn span {
+  font-size: 16px;
+  text-align: end;
+}
+
+/* BREAKEPOINT */
+@media screen and (max-width: 540px) {
+  .header {
+    margin-top: 25px;
+  }
+  .header .home_btn img {
+    width: 16px;
+  }
+  .header .restart_btn img {
+    width: 18px;
+  }
+
+  .header .home_btn span,
+  .header .restart_btn span {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    margin-top: 35px;
+  }
+  .header .home_btn img {
+    width: 12px;
+  }
+  .header .restart_btn img {
+    width: 14px;
+  }
+
+  .header .home_btn span,
+  .header .restart_btn span {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 260px) {
+  .header {
+    margin-top: 50px;
+  }
+  .header .home_btn img {
+    width: 10px;
+  }
+  .header .restart_btn img {
+    width: 12px;
+  }
+
+  .header .home_btn span,
+  .header .restart_btn span {
+    font-size: 8px;
+  }
+}

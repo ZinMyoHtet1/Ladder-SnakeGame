@@ -37,7 +37,7 @@
 
 /* HEADER */
 
-.playground_page .wrapper .header {
+/* .playground_page .wrapper .header {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -61,9 +61,9 @@
 .playground_page .wrapper .header .home_btn span,
 .playground_page .wrapper .header .restart_btn span {
   font-size: 16px;
-}
+} */
 
-/* BOTTOM CONTAINER */
+/* BOTTOM CONTAINER
 .playground_page .wrapper .bottom_container {
   display: flex;
   justify-content: space-between;
@@ -131,8 +131,9 @@
 .playground_page .wrapper .bottom_container .dice_container .roller {
   width: 40px;
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
-}
+/* } */
 
+/* BREAKPOINTS */
 @media only screen and (max-width: 540px) {
   .playground_page .wrapper {
     width: 300px;
@@ -141,6 +142,56 @@
   .playground_page .wrapper .gameboard {
     height: 300px;
   }
+
+  .playground_page .wrapper .gameboard .doe {
+    width: 18px;
+    height: 18px;
+    transform: translateX(-11px) translateY(11px);
+  }
+
+  .playground_page .wrapper .gameboard .doe.red_doe {
+    transform: translateX(-13px) translateY(13px);
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .playground_page .wrapper {
+    width: 250px;
+  }
+
+  .playground_page .wrapper .gameboard {
+    height: 250px;
+  }
+
+  .playground_page .wrapper .gameboard .doe {
+    width: 14px;
+    height: 14px;
+    transform: translateX(-7px) translateY(7px);
+  }
+
+  .playground_page .wrapper .gameboard .doe.red_doe {
+    transform: translateX(-9px) translateY(9px);
+  }
+}
+
+@media only screen and (max-width: 260px) {
+  .playground_page .wrapper {
+    width: 200px;
+  }
+
+  .playground_page .wrapper .gameboard {
+    height: 200px;
+  }
+
+  .playground_page .wrapper .gameboard .doe {
+    width: 12px;
+    height: 12px;
+    /* transform: translateX(-7px) translateY(7px); */
+  }
+
+  /* .playground_page .wrapper .gameboard .doe.red_doe {
+    transform: translateX(-9px) translateY(9px);
+  } */
 }
 
 @keyframes doe_animate {

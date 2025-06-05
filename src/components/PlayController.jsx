@@ -11,6 +11,8 @@ import dice4 from "./../assets/dice-4.png";
 import dice5 from "./../assets/dice-5.png";
 import dice6 from "./../assets/dice-6.png";
 
+import "./../styles/playController.css";
+
 function PlayController() {
   const { state, dispatch } = useContext(PlayStateContext);
   const [onClickRoller, setOnClickRoller] = useState(false);
@@ -95,13 +97,6 @@ function PlayController() {
     }, 2000);
   };
 
-  // const stopGame = () => {
-  //   setCanClickRoller(false);
-  // };
-
-  // const startGame = () => {
-  //   setCanClickRoller(true);
-  // };
   const playAuto = () => {
     setCanClickRoller(true);
     handleRoll();
@@ -126,12 +121,6 @@ function PlayController() {
     };
   };
 
-  // const enterKeyPress = (e) => {
-  //   if (e.keyCode === 13 && !(state.turn === 2 && state.mode === "computer")) {
-  //     playAuto();
-  //   }
-  // };
-
   useEffect(() => {
     if (state.turn === 2 && state.mode === "computer") {
       setCanClickRoller(false);
@@ -145,18 +134,6 @@ function PlayController() {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.mode, state.turn, state.winner]);
-
-  // useEffect(() => {
-  //   const handleKeyDown = (e) => enterKeyPress(e);
-  //   window.addEventListener("keydown", handleKeyDown);
-  //   return () => {
-  //     window.removeEventListener("keydown", handleKeyDown);
-  //   };
-
-  //   // return () => {
-  //   //   window.removeEventListener("keydown", (e) => enterKeyPress(e));
-  //   // };
-  // }, []);
 
   return (
     <div className="bottom_container">

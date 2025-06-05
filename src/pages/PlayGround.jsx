@@ -19,6 +19,7 @@ const PlayGround = () => {
   const navigate = useNavigate();
   const [showVictory, setShowVictory] = useState(false);
   const [showDefeat, setShowDefeat] = useState(false);
+  const [stepLength, setStepLength] = useState(false);
 
   const initialValues = {
     mode: "",
@@ -68,8 +69,8 @@ const PlayGround = () => {
     }
     const [row, column] = coords;
 
-    const y = row * 25 + 25 * (row - 1);
-    const x = column * 25 + 25 * (column - 1);
+    const y = row * stepLength + stepLength * (row - 1);
+    const x = column * stepLength + stepLength * (column - 1);
     return { x, y };
   };
 
@@ -97,9 +98,41 @@ const PlayGround = () => {
     };
   };
 
+  function resizeHandler() {
+    const width = getStepLength();
+    setStepLength(width);
+  }
+
+  function getStepLength() {
+    const width = window.innerWidth;
+    switch (true) {
+      case width > 540:
+        return 25;
+      case width <= 260:
+        return 10;
+      case width <= 320:
+        return 12.5;
+      case width <= 540:
+        return 15;
+    }
+  }
+
+  useEffect(() => {
+    // initial check
+    resizeHandler();
+    window.addEventListener("resize", () => {
+      resizeHandler();
+    });
+    return () => {
+      window.removeEventListener("resize", () => {
+        resizeHandler();
+      });
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(() => {
     const mode = location?.state?.mode;
-    console.log(mode, "mode");
     if (!mode) navigate("/", { replace: true });
     dispatch({ type: "SET_MODE", payload: mode });
     if (state?.winner && state?.winner === "Computer") {

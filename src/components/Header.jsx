@@ -5,6 +5,8 @@ import home_icon from "./../assets/home-icon.png";
 import restart_icon from "./../assets/restart-icon.png";
 import { PlayStateContext } from "../contexts/playStateContext";
 
+import "./../styles/header.css";
+
 function Header() {
   const navigate = useNavigate();
   const { dispatch } = useContext(PlayStateContext);

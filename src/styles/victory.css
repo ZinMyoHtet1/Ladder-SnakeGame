@@ -20,7 +20,7 @@
   background-color: rgba(255, 255, 255, 1);
   justify-content: flex-start;
   align-items: center;
-  padding: 20px;
+  /* padding: 30px; */
   border-radius: 10px;
   box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.5);
 }
@@ -29,13 +29,14 @@
   height: 100px;
   width: 50px;
   margin-bottom: 20px;
+  margin-top: 50px;
 }
 
 .victory_overlay .wrapper .victory_message {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .victory_overlay .wrapper .victory_message img {
@@ -73,4 +74,115 @@
   /* padding: 10px 20px; */
   font-size: 16px;
   color: var(--text-color);
+}
+
+/* BREAKEPOINT */
+@media only screen and (max-width: 540px) {
+  .victory_overlay .wrapper {
+    width: 300px;
+    height: 300px;
+  }
+
+  .victory_overlay .wrapper .victory_trophy {
+    height: 70px;
+    width: 40px;
+    margin-bottom: 10px;
+  }
+
+  .victory_overlay .wrapper .victory_message span {
+    font-size: 20px;
+  }
+  .victory_overlay .wrapper .victory_message img {
+    width: 15px;
+    margin: 0 6px;
+  }
+
+  .victory_overlay .wrapper .victory_content {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .victory_overlay .wrapper .btn_container {
+    gap: 10px;
+  }
+
+  .victory_overlay .wrapper .btn_container button {
+    width: 80px;
+    height: 30px;
+    /* padding: 10px 20px; */
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .victory_overlay .wrapper {
+    width: 250px;
+    height: 300px;
+  }
+
+  .victory_overlay .wrapper .victory_trophy {
+    height: 60px;
+    width: 35px;
+    margin-bottom: 10px;
+  }
+
+  .victory_overlay .wrapper .victory_message span {
+    font-size: 18px;
+  }
+  .victory_overlay .wrapper .victory_message img {
+    width: 13px;
+    margin: 0 4px;
+  }
+
+  .victory_overlay .wrapper .victory_content {
+    font-size: 14px;
+  }
+
+  .victory_overlay .wrapper .btn_container {
+    gap: 8px;
+  }
+
+  .victory_overlay .wrapper .btn_container button {
+    width: 70px;
+    height: 25px;
+    /* padding: 10px 20px; */
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 260px) {
+  .victory_overlay .wrapper {
+    width: 200px;
+    height: 250px;
+    border-radius: 5px;
+  }
+
+  .victory_overlay .wrapper .victory_trophy {
+    height: 45px;
+    width: 25px;
+    margin-bottom: 10px;
+  }
+
+  .victory_overlay .wrapper .victory_message span {
+    font-size: 16px;
+  }
+  .victory_overlay .wrapper .victory_message img {
+    width: 11px;
+    margin: 0 2px;
+  }
+
+  .victory_overlay .wrapper .victory_content {
+    font-size: 12px;
+  }
+
+  .victory_overlay .wrapper .btn_container {
+    gap: 6px;
+  }
+
+  .victory_overlay .wrapper .btn_container button {
+    width: 60px;
+    height: 20px;
+    /* padding: 10px 20px; */
+    font-size: 8px;
+  }
 }

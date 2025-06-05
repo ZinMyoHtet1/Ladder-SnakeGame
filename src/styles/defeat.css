@@ -29,14 +29,13 @@
 .defeat_overlay .wrapper .defeat_trophy {
   height: 100px;
   width: 80px;
-  margin-bottom: 20px;
+  margin-top: 50px;
 }
 
 .defeat_overlay .wrapper .defeat_message {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 10px;
 }
 
 .defeat_overlay .wrapper .defeat_message span {
@@ -65,4 +64,115 @@
   /* padding: 10px 20px; */
   font-size: 16px;
   color: var(--text-color);
+}
+
+/* BREAKEPOINT */
+@media only screen and (max-width: 540px) {
+  .defeat_overlay .wrapper {
+    width: 300px;
+    height: 300px;
+  }
+
+  .defeat_overlay .wrapper .defeat_trophy {
+    height: 70px;
+    width: 40px;
+    margin-bottom: 10px;
+  }
+
+  .defeat_overlay .wrapper .defeat_message span {
+    font-size: 20px;
+  }
+  .defeat_overlay .wrapper .defeat_message img {
+    width: 15px;
+    margin: 0 6px;
+  }
+
+  .defeat_overlay .wrapper .defeat_content {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .defeat_overlay .wrapper .btn_container {
+    gap: 10px;
+  }
+
+  .defeat_overlay .wrapper .btn_container button {
+    width: 80px;
+    height: 30px;
+    /* padding: 10px 20px; */
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .defeat_overlay .wrapper {
+    width: 250px;
+    height: 300px;
+  }
+
+  .defeat_overlay .wrapper .defeat_trophy {
+    height: 60px;
+    width: 35px;
+    margin-bottom: 10px;
+  }
+
+  .defeat_overlay .wrapper .defeat_message span {
+    font-size: 18px;
+  }
+  .defeat_overlay .wrapper .defeat_message img {
+    width: 13px;
+    margin: 0 4px;
+  }
+
+  .defeat_overlay .wrapper .defeat_content {
+    font-size: 14px;
+  }
+
+  .defeat_overlay .wrapper .btn_container {
+    gap: 8px;
+  }
+
+  .defeat_overlay .wrapper .btn_container button {
+    width: 70px;
+    height: 25px;
+    /* padding: 10px 20px; */
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 260px) {
+  .defeat_overlay .wrapper {
+    width: 200px;
+    height: 250px;
+    border-radius: 5px;
+  }
+
+  .defeat_overlay .wrapper .defeat_trophy {
+    height: 45px;
+    width: 25px;
+    margin-bottom: 10px;
+  }
+
+  .defeat_overlay .wrapper .defeat_message span {
+    font-size: 16px;
+  }
+  .defeat_overlay .wrapper .defeat_message img {
+    width: 11px;
+    margin: 0 2px;
+  }
+
+  .defeat_overlay .wrapper .defeat_content {
+    font-size: 12px;
+  }
+
+  .defeat_overlay .wrapper .btn_container {
+    gap: 6px;
+  }
+
+  .defeat_overlay .wrapper .btn_container button {
+    width: 60px;
+    height: 20px;
+    /* padding: 10px 20px; */
+    font-size: 8px;
+  }
 }
