@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { PlayStateProvider } from "./../contexts/playStateContext.js";
 
 import Header from "./../components/Header.jsx";
@@ -16,6 +16,7 @@ import playControllerReducer from "../reducers/playControllerReducer.js";
 
 const PlayGround = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [showVictory, setShowVictory] = useState(false);
   const [showDefeat, setShowDefeat] = useState(false);
 
@@ -97,7 +98,9 @@ const PlayGround = () => {
   };
 
   useEffect(() => {
-    const mode = location.state.mode;
+    const mode = location?.state?.mode;
+    console.log(mode, "mode");
+    if (!mode) navigate("/", { replace: true });
     dispatch({ type: "SET_MODE", payload: mode });
     if (state?.winner && state?.winner === "Computer") {
       setShowDefeat(true);
@@ -105,7 +108,7 @@ const PlayGround = () => {
     if (state?.winner && state?.winner !== "Computer") {
       setShowVictory(true);
     }
-  }, [location.state.mode, state?.winner]);
+  }, [location?.state?.mode, navigate, state?.winner]);
 
   return (
     <PlayStateProvider value={{ state, dispatch }}>

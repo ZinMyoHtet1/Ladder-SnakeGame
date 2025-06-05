@@ -133,6 +133,16 @@
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
 
+@media only screen and (max-width: 540px) {
+  .playground_page .wrapper {
+    width: 300px;
+  }
+
+  .playground_page .wrapper .gameboard {
+    height: 300px;
+  }
+}
+
 @keyframes doe_animate {
   from {
     transform: scale(1);

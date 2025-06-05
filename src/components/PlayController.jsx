@@ -126,6 +126,12 @@ function PlayController() {
     };
   };
 
+  // const enterKeyPress = (e) => {
+  //   if (e.keyCode === 13 && !(state.turn === 2 && state.mode === "computer")) {
+  //     playAuto();
+  //   }
+  // };
+
   useEffect(() => {
     if (state.turn === 2 && state.mode === "computer") {
       setCanClickRoller(false);
@@ -136,8 +142,21 @@ function PlayController() {
     } else {
       setCanClickRoller(true);
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.mode, state.turn, state.winner]);
+
+  // useEffect(() => {
+  //   const handleKeyDown = (e) => enterKeyPress(e);
+  //   window.addEventListener("keydown", handleKeyDown);
+  //   return () => {
+  //     window.removeEventListener("keydown", handleKeyDown);
+  //   };
+
+  //   // return () => {
+  //   //   window.removeEventListener("keydown", (e) => enterKeyPress(e));
+  //   // };
+  // }, []);
 
   return (
     <div className="bottom_container">
