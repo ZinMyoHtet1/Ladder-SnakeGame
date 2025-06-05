@@ -1,48 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useReducer } from "react";
+import { useLocation } from "react-router-dom";
+import { PlayStateProvider } from "./../contexts/playStateContext.js";
+
+import Header from "./../components/Header.jsx";
+import PlayController from "../components/PlayController.jsx";
 
 import gameboard_img from "./../assets/game_board.jpg";
-import home_icon from "./../assets/home-icon.svg";
 import red_doe from "./../assets/red-doe-icon.png";
 import green_doe from "./../assets/green-doe-icon.png";
-import roller_icon from "./../assets/roller-icon.svg";
-import dice1 from "./../assets/dice-1.png";
-import dice2 from "./../assets/dice-2.png";
-import dice3 from "./../assets/dice-3.png";
-import dice4 from "./../assets/dice-4.png";
-import dice5 from "./../assets/dice-5.png";
-import dice6 from "./../assets/dice-6.png";
+
 import "./../styles/playground.css";
+import playControllerReducer from "../reducers/playControllerReducer.js";
 
 const PlayGround = () => {
   const location = useLocation();
-  const navigate = useNavigate();
-
   const mode = location.state.mode;
-
-  const [dice, setDice] = useState(2);
-  const [state, setState] = useState({
+  const initialValues = {
     mode: mode,
     turn: 1,
     player1_position: 0,
     player2_position: 0,
-  });
-  const [onClickRoller, setOnClickRoller] = useState(false);
-  const [canClickRoller, setCanClickRoller] = useState(true);
-  // const diceImg = `./../assets/dice-${dice}.png`;
-
-  const diceImages = [dice1, dice2, dice3, dice4, dice5, dice6];
-
-  const handleHome = () => {
-    navigate("/", { replace: true });
   };
 
-  const switchTurn = () => {
-    setState((initialValues) => {
-      return { ...initialValues, turn: initialValues.turn === 1 ? 2 : 1 };
-    });
-    setCanClickRoller(true);
-  };
+  const [state, dispatch] = useReducer(playControllerReducer, initialValues);
 
   const coordinations = (position) => {
     if (position < 0 && position > 100) {
@@ -72,25 +52,6 @@ const PlayGround = () => {
       default:
         return null;
     }
-  };
-
-  const snakesAndLadders = {
-    1: 38,
-    4: 14,
-    9: 31,
-    21: 42,
-    28: 84,
-    51: 67,
-    72: 91,
-    80: 99,
-    17: 7,
-    54: 34,
-    62: 19,
-    64: 60,
-    87: 36,
-    93: 73,
-    95: 75,
-    98: 79,
   };
 
   const getPosition = (position) => {
@@ -130,164 +91,30 @@ const PlayGround = () => {
     };
   };
 
-  const changePosition = (position) => {
-    setState((initialValues) => ({
-      ...initialValues,
-      player1_position:
-        initialValues.turn === 1 ? position : initialValues.player1_position,
-      player2_position:
-        initialValues.turn === 2 ? position : initialValues.player2_position,
-    }));
-    console.log("CHangePosition Running");
-  };
-
-  const goOneStep = (steps) => {
-    setState((initialValues) => ({
-      ...initialValues,
-      player1_position:
-        initialValues.turn === 1
-          ? Math.min(initialValues.player1_position + steps, 100)
-          : initialValues.player1_position,
-      player2_position:
-        initialValues.turn === 2
-          ? Math.min(initialValues.player2_position + steps, 100)
-          : initialValues.player2_position,
-    }));
-  };
-  const setPositionWithRollNumber = (position, callback) => {
-    let i;
-    for (i = 0; i < position + 1; i++) {
-      setTimeout(() => goOneStep(1), 1500 + 500 * (i + 1));
-
-      if (position === i) {
-        setTimeout(() => callback(position + 1), 1500 + 500 * (i + 2));
-        setTimeout(() => {
-          switchTurn();
-        }, 1500 + 500 * (i + 3));
-      }
-    }
-  };
-
-  const gameStrategy = (currentPosition) => {
-    const toChangePosition = snakesAndLadders[currentPosition];
-    if (toChangePosition) changePosition(toChangePosition);
-  };
-
-  const handleRoll = () => {
-    if (!canClickRoller) return;
-    setCanClickRoller(false);
-    setOnClickRoller(true);
-    let randomNumber;
-    const getRandomNumber = () => {
-      const rn = Math.floor(Math.random() * 6);
-      setDice(rn);
-      randomNumber = rn;
-      console.log(rn, "ran");
-    };
-    const interval = setInterval(() => getRandomNumber(), 200);
-
-    setTimeout(() => clearInterval(interval), 2000);
-
-    setTimeout(() => {
-      setPositionWithRollNumber(randomNumber, (position) => {
-        const currentPosition =
-          state.turn === 1 ? state.player1_position : state.player2_position;
-        gameStrategy(currentPosition + position);
-      });
-      setOnClickRoller(false);
-    }, 2000);
-  };
-
-  const setRollBtnStyle = () => {
-    if (state.mode === "computer" && state.turn === 2) {
-      return {
-        opacity: "0.4",
-      };
-    }
-    if (onClickRoller) {
-      return {
-        opacity: "1",
-        animation: "rotate_roller linear 0.5s infinite normal",
-      };
-    }
-    // animation: rotate_roller ease-in 2s infinite normal;
-    return {
-      opacity: "1",
-      animation: "rotate_roller linear 7s infinite normal",
-    };
-  };
-
-  const playAuto = () => {
-    setCanClickRoller(true);
-    handleRoll();
-  };
-
-  useEffect(() => {
-    if (state.turn === 2 && mode === "computer") {
-      setCanClickRoller(false);
-      setTimeout(() => playAuto(), 1000);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mode, state.turn]);
-
   return (
-    <div className="playground_page page">
-      <div className="wrapper">
-        <div className="header">
-          <div className="home_btn btn" onClick={handleHome}>
-            <img src={home_icon} alt="home_icon" />
-            <span>Home</span>
-          </div>
-        </div>
-        <div className="gameboard">
-          <img src={gameboard_img} alt="board" />
-          <img
-            src={red_doe}
-            alt="red_doe"
-            className="red_doe doe"
-            style={setStyleRed(state.player1_position)}
-          />
-          <img
-            src={green_doe}
-            alt="green_doe"
-            className="green_doe doe"
-            style={setStyleGreen(state.player2_position)}
-          />
-        </div>
-        <div className="bottom_container">
-          <div className="player_box">
-            <div className="player_name">Player 1</div>
-            <div className="position">{state.player1_position}</div>
+    <PlayStateProvider value={{ state, dispatch }}>
+      <div className="playground_page page">
+        <div className="wrapper">
+          <Header />
+          <div className="gameboard">
+            <img src={gameboard_img} alt="board" />
             <img
               src={red_doe}
               alt="red_doe"
-              className={`red_doe ${state.turn === 1 ? "animate" : ""}`}
+              className="red_doe doe"
+              style={setStyleRed(state.player1_position)}
             />
-          </div>
-          <div className="dice_container">
-            <img src={diceImages[dice]} alt="dice" className="dice" />
-            <img
-              src={roller_icon}
-              alt="roller"
-              style={setRollBtnStyle()}
-              className="roller btn onClick"
-              onClick={handleRoll}
-            />
-          </div>
-          <div className="player_box right">
-            <div className="player_name">
-              {state.mode === "computer" ? "Computer" : "Player 2"}
-            </div>
-            <div className="position">{state.player2_position}</div>
             <img
               src={green_doe}
-              alt="green_doe doe_icon"
-              className={`green_doe ${state.turn === 2 ? "animate" : ""}`}
+              alt="green_doe"
+              className="green_doe doe"
+              style={setStyleGreen(state.player2_position)}
             />
           </div>
+          <PlayController />
         </div>
       </div>
-    </div>
+    </PlayStateProvider>
   );
 };
 
