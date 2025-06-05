@@ -11,6 +11,14 @@
   --text-color: #6644de;
 }
 
+body {
+  background-color: var(--background-color);
+}
+
+.page {
+  position: relative;
+}
+
 .btn {
   cursor: pointer;
 }

@@ -1,0 +1,76 @@
+.victory_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: aqua; */
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.victory_overlay .wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 1);
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.5);
+}
+
+.victory_overlay .wrapper .victory_trophy {
+  height: 100px;
+  width: 50px;
+  margin-bottom: 20px;
+}
+
+.victory_overlay .wrapper .victory_message {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10px;
+}
+
+.victory_overlay .wrapper .victory_message img {
+  width: 20px;
+  margin: 0 10px;
+}
+
+.victory_overlay .wrapper .victory_message img:first-child {
+  transform: rotateY(180deg);
+}
+
+.victory_overlay .wrapper .victory_message span {
+  font-size: 30px;
+}
+
+.victory_overlay .wrapper .victory_content {
+  font-size: 20px;
+  color: rgb(16, 209, 16);
+  text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+.victory_overlay .wrapper .btn_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.victory_overlay .wrapper .btn_container button {
+  width: 100px;
+  height: 40px;
+  border: 2px solid var(--background-color);
+  /* padding: 10px 20px; */
+  font-size: 16px;
+  color: var(--text-color);
+}

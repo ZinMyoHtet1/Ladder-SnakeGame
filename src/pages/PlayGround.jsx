@@ -1,9 +1,11 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { PlayStateProvider } from "./../contexts/playStateContext.js";
 
 import Header from "./../components/Header.jsx";
 import PlayController from "../components/PlayController.jsx";
+import Defeat from "./Defeat.jsx";
+import Victory from "./Victory.jsx";
 
 import gameboard_img from "./../assets/game_board.jpg";
 import red_doe from "./../assets/red-doe-icon.png";
@@ -14,12 +16,15 @@ import playControllerReducer from "../reducers/playControllerReducer.js";
 
 const PlayGround = () => {
   const location = useLocation();
-  const mode = location.state.mode;
+  const [showVictory, setShowVictory] = useState(false);
+  const [showDefeat, setShowDefeat] = useState(false);
+
   const initialValues = {
-    mode: mode,
+    mode: "",
     turn: 1,
     player1_position: 0,
     player2_position: 0,
+    winner: null,
   };
 
   const [state, dispatch] = useReducer(playControllerReducer, initialValues);
@@ -91,6 +96,17 @@ const PlayGround = () => {
     };
   };
 
+  useEffect(() => {
+    const mode = location.state.mode;
+    dispatch({ type: "SET_MODE", payload: mode });
+    if (state?.winner && state?.winner === "Computer") {
+      setShowDefeat(true);
+    }
+    if (state?.winner && state?.winner !== "Computer") {
+      setShowVictory(true);
+    }
+  }, [location.state.mode, state?.winner]);
+
   return (
     <PlayStateProvider value={{ state, dispatch }}>
       <div className="playground_page page">
@@ -113,6 +129,9 @@ const PlayGround = () => {
           </div>
           <PlayController />
         </div>
+        {showVictory && <Victory setShowVictory={setShowVictory} />}
+        {showDefeat && <Defeat setShowDefeat={setShowDefeat} />}
+        {/* <Defeat /> */}
       </div>
     </PlayStateProvider>
   );

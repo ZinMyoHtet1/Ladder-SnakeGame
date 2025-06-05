@@ -53,6 +53,8 @@ function PlayController() {
 
       if (position === i) {
         setTimeout(() => callback(position + 1), 1500 + 500 * (i + 2));
+        if (state.winner) return;
+
         setTimeout(() => {
           switchTurn();
         }, 1500 + 500 * (i + 3));
@@ -65,7 +67,6 @@ function PlayController() {
   };
 
   const gameStrategy = (currentPosition) => {
-    //if(currentPosition===100)// WIn Game
     const toChangePosition = snakesAndLadders[currentPosition];
     if (toChangePosition) changePosition(toChangePosition);
   };
@@ -94,6 +95,13 @@ function PlayController() {
     }, 2000);
   };
 
+  // const stopGame = () => {
+  //   setCanClickRoller(false);
+  // };
+
+  // const startGame = () => {
+  //   setCanClickRoller(true);
+  // };
   const playAuto = () => {
     setCanClickRoller(true);
     handleRoll();
@@ -123,8 +131,13 @@ function PlayController() {
       setCanClickRoller(false);
       setTimeout(() => playAuto(), 1000);
     }
+    if (state.winner) {
+      setCanClickRoller(false);
+    } else {
+      setCanClickRoller(true);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.mode, state.turn]);
+  }, [state.mode, state.turn, state.winner]);
 
   return (
     <div className="bottom_container">
