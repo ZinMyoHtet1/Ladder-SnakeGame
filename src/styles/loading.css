@@ -1,0 +1,38 @@
+.loading_overpage {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.loading_overpage span {
+  font-family: var(--text-cursive);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/* BREAKPOINTS */
+
+@media screen and (max-width: 560px) {
+  .loading_overpage span {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .loading_overpage {
+    gap: 3px;
+  }
+
+  .loading_overpage span {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 260px) {
+  .loading_overpage {
+    gap: 1.5px;
+  }
+  .loading_overpage span {
+    font-size: 8px;
+  }
+}

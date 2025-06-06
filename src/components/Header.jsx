@@ -19,13 +19,16 @@ function Header() {
   };
   return (
     <div className="header">
-      <div className="home_btn btn" onClick={handleHome}>
-        <img src={home_icon} alt="home_icon" />
-        <span>Home</span>
-      </div>
-      <div className="restart_btn btn" onClick={handleRestart}>
-        <img src={restart_icon} alt="home_icon" />
-        <span>Restart</span>
+      <div className="app_name">Ladders & Snakes</div>
+      <div className="btn_container">
+        <div className="home_btn btn" onClick={handleHome}>
+          <img src={home_icon} alt="home_icon" />
+          <span>Home</span>
+        </div>
+        <div className="restart_btn btn" onClick={handleRestart}>
+          <img src={restart_icon} alt="home_icon" />
+          <span>Restart</span>
+        </div>
       </div>
     </div>
   );

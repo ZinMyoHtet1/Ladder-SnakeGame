@@ -182,7 +182,7 @@ const PlayGround = () => {
         </div>
         {showVictory && <Victory setShowVictory={setShowVictory} />}
         {showDefeat && <Defeat setShowDefeat={setShowDefeat} />}
-        {isLoading && <Loading />}
+        {isLoading && <Loading message="Starting Game ..." />}
         {/* <Defeat /> */}
       </div>
     </PlayStateProvider>

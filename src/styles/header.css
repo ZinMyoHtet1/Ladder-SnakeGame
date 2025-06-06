@@ -2,13 +2,21 @@
   font-family: var(--text-roboto);
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  /* padding: 8px 0; */
+  /* gap: 10px; */
+}
+
+.header .btn_container {
+  display: flex;
+  align-items: center;
   justify-content: flex-start;
   padding: 8px 0;
   gap: 10px;
 }
 
-.header .home_btn,
-.header .restart_btn {
+.header .btn_container .home_btn,
+.header .btn_container .restart_btn {
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -18,36 +26,47 @@
   border-radius: 4px;
 }
 
-.header .home_btn img {
+.header .btn_container .home_btn img {
   width: 19px;
   transform: translateY(-1px);
 }
 
-.header .restart_btn img {
+.header .btn_container .restart_btn img {
   width: 24px;
 }
 
-.header .home_btn span,
-.header .restart_btn span {
+.header .btn_container .home_btn span,
+.header .btn_container .restart_btn span {
   font-size: 16px;
   text-align: end;
+}
+
+.header .app_name {
+  font-family: var(--text-cursive);
+  font-weight: 600;
+  font-size: 16px;
 }
 
 /* BREAKEPOINT */
 @media screen and (max-width: 540px) {
   .header {
     margin-top: 25px;
-    padding: 6px 0;
+    /* padding: 6px 0; */
   }
-  .header .home_btn img {
+
+  .header .btn_container .home_btn img {
     width: 12px;
   }
-  .header .restart_btn img {
+  .header .btn_container .restart_btn img {
     width: 16px;
   }
 
-  .header .home_btn span,
-  .header .restart_btn span {
+  .header .btn_container .home_btn span,
+  .header .btn_container .restart_btn span {
+    font-size: 12px;
+  }
+
+  .header .app_name {
     font-size: 12px;
   }
 }
@@ -55,17 +74,24 @@
 @media screen and (max-width: 320px) {
   .header {
     margin-top: 35px;
-    padding: 4px 0;
+    /* padding: 4px 0; */
   }
-  .header .home_btn img {
+  .header .btn_container {
+    padding: 6px 0;
+  }
+  .header .btn_container .home_btn img {
     width: 8px;
   }
-  .header .restart_btn img {
+  .header .btn_container .restart_btn img {
     width: 12px;
   }
 
-  .header .home_btn span,
-  .header .restart_btn span {
+  .header .btn_container .home_btn span,
+  .header .btn_container .restart_btn span {
+    font-size: 10px;
+  }
+
+  .header .app_name {
     font-size: 10px;
   }
 }
@@ -76,23 +102,31 @@
     gap: 5px;
   }
 
-  .header .home_btn,
-  .header .restart_btn {
+  .header .btn_container {
+    padding: 4px 0;
+  }
+
+  .header .btn_container .home_btn,
+  .header .btn_container .restart_btn {
     gap: 3px;
     border: solid 0.2px #000000;
     padding: 2px 4px;
     border-radius: 2px;
   }
 
-  .header .home_btn img {
+  .header .btn_container .home_btn img {
     width: 8px;
   }
-  .header .restart_btn img {
+  .header .btn_container .restart_btn img {
     width: 10px;
   }
 
-  .header .home_btn span,
-  .header .restart_btn span {
+  .header .btn_container .home_btn span,
+  .header .btn_container .restart_btn span {
+    font-size: 8px;
+  }
+
+  .header .app_name {
     font-size: 8px;
   }
 }
