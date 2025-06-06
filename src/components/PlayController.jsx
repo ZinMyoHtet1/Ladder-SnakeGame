@@ -129,7 +129,10 @@ function PlayController() {
   useEffect(() => {
     if (state.turn === 2 && state.mode === "computer") {
       setCanClickRoller(false);
-      setTimeout(() => playAuto(), 1000);
+      setTimeout(() => {
+        if (state.winner) return;
+        playAuto();
+      }, 1000);
     }
     if (state.winner) {
       setCanClickRoller(false);
