@@ -40,7 +40,6 @@ function playControllerReducer(state, action) {
           state.turn === 2 ? action.payload : state.player2_position,
       };
     case "CHECK_WINNER":
-      console.log("Check winner from reducer");
       switch (true) {
         case state.player1_position === 100 && state.mode === "computer":
           return {
