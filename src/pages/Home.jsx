@@ -27,6 +27,7 @@ const Home = () => {
       <button className="btn" onClick={handlePlayComputer}>
         Play With Computer
       </button>
+      <span className="created_by">@jys62025</span>
       {isLoading && <Loading />}
     </div>
   );

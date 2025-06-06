@@ -1,4 +1,5 @@
 .header {
+  font-family: var(--text-roboto);
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -12,11 +13,18 @@
   align-items: flex-end;
   justify-content: center;
   gap: 6px;
+  border: solid 1px #000000;
+  padding: 4px 6px;
+  border-radius: 4px;
 }
 
-.header .home_btn img,
+.header .home_btn img {
+  width: 19px;
+  transform: translateY(-1px);
+}
+
 .header .restart_btn img {
-  width: 20px;
+  width: 24px;
 }
 
 .header .home_btn span,
@@ -31,10 +39,10 @@
     margin-top: 25px;
   }
   .header .home_btn img {
-    width: 16px;
+    width: 12px;
   }
   .header .restart_btn img {
-    width: 18px;
+    width: 16px;
   }
 
   .header .home_btn span,
@@ -48,10 +56,10 @@
     margin-top: 35px;
   }
   .header .home_btn img {
-    width: 12px;
+    width: 8px;
   }
   .header .restart_btn img {
-    width: 14px;
+    width: 12px;
   }
 
   .header .home_btn span,
@@ -63,12 +71,22 @@
 @media screen and (max-width: 260px) {
   .header {
     margin-top: 50px;
+    gap: 5px;
   }
+
+  .header .home_btn,
+  .header .restart_btn {
+    gap: 3px;
+    border: solid 0.4px #000000;
+    padding: 2px 4px;
+    border-radius: 2px;
+  }
+
   .header .home_btn img {
-    width: 10px;
+    width: 8px;
   }
   .header .restart_btn img {
-    width: 12px;
+    width: 10px;
   }
 
   .header .home_btn span,

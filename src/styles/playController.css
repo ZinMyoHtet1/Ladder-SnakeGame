@@ -16,7 +16,7 @@
   height: 60px;
   border: solid 2px red;
   border-radius: 10px;
-  padding: 3px 6px;
+  padding: 4px 8px;
 }
 
 .bottom_container .player_box.right {
@@ -26,8 +26,9 @@
 }
 
 .bottom_container .player_box .player_name {
-  font-size: 20px;
-  font-weight: 600;
+  font-family: var(--text-roboto);
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .bottom_container .player_box img {
@@ -48,8 +49,9 @@
 }
 
 .bottom_container .player_box .position {
-  color: blue;
-  font-size: 16px;
+  font-family: var(--text-roboto);
+  color: rgb(45, 45, 244);
+  font-size: 14px;
 }
 
 .bottom_container .dice_container {
@@ -85,11 +87,11 @@
   }
 
   .bottom_container .player_box .player_name {
-    font-size: 16px;
+    font-size: 13px;
   }
 
   .bottom_container .player_box .position {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .bottom_container .dice_container {
@@ -110,7 +112,7 @@
   .bottom_container .player_box {
     width: 100px;
     height: 40px;
-    padding: 1px 4px;
+    padding: 2px 4px;
   }
 
   .bottom_container .player_box img {
@@ -119,11 +121,11 @@
   }
 
   .bottom_container .player_box .player_name {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .bottom_container .player_box .position {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .bottom_container .dice_container {
@@ -143,8 +145,7 @@
 @media only screen and (max-width: 260px) {
   .bottom_container .player_box {
     width: 80px;
-    height: 35px;
-    padding: 1px 2px;
+    height: 30px;
     border-radius: 5px;
   }
 
@@ -154,11 +155,11 @@
   }
 
   .bottom_container .player_box .player_name {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .bottom_container .player_box .position {
-    font-size: 8px;
+    font-size: 7px;
   }
 
   .bottom_container .dice_container {
