@@ -26,8 +26,8 @@ const PlayGround = () => {
   const initialValues = {
     mode: "",
     turn: 1,
-    player1_position: 99,
-    player2_position: 76,
+    player1_position: 0,
+    player2_position: 0,
     winner: null,
   };
 
