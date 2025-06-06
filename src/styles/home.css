@@ -30,6 +30,13 @@
   box-shadow: 8px 8px 8px rgba(255, 255, 255, 0.5);
 }
 
+.page_spinner {
+  width: 150px;
+  height: 120px;
+}
+
+/* BREAKPOINTS */
+
 @media only screen and (max-width: 1110px) {
   .home_page h1 {
     font-size: 80px;
@@ -64,6 +71,11 @@
     font-size: 20px;
     margin-bottom: 12px;
   }
+
+  .page_spinner {
+    width: 80px;
+    height: 80px;
+  }
 }
 
 @media only screen and (max-width: 670px) {
@@ -84,6 +96,11 @@
     margin-bottom: 10px;
     border: solid 2px #000000;
     box-shadow: 4px 4px 4px rgba(255, 255, 255, 0.5);
+  }
+
+  .page_spinner {
+    width: 60px;
+    height: 60px;
   }
 }
 
@@ -106,6 +123,11 @@
     border: solid 1.5px #000000;
     box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.5);
   }
+
+  .page_spinner {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 @media only screen and (max-width: 350px) {
@@ -126,5 +148,10 @@
     margin-bottom: 5px;
     border: solid 1px #000000;
     box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5);
+  }
+
+  .page_spinner {
+    width: 30px;
+    height: 30px;
   }
 }

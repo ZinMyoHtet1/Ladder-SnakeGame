@@ -13,6 +13,7 @@ import green_doe from "./../assets/green-doe-icon.png";
 
 import "./../styles/playground.css";
 import playControllerReducer from "../reducers/playControllerReducer.js";
+import Loading from "./Loading.jsx";
 
 const PlayGround = () => {
   const location = useLocation();
@@ -20,6 +21,7 @@ const PlayGround = () => {
   const [showVictory, setShowVictory] = useState(false);
   const [showDefeat, setShowDefeat] = useState(false);
   const [stepLength, setStepLength] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const initialValues = {
     mode: "",
@@ -117,16 +119,28 @@ const PlayGround = () => {
     }
   }
 
+  const checkLoadState = () => {
+    if (document.readyState === "complete") {
+      setTimeout(() => setIsLoading(false), 2000);
+    }
+  };
+
   useEffect(() => {
+    checkLoadState();
+    const handleLoad = () => checkLoadState();
     // initial check
     resizeHandler();
     window.addEventListener("resize", () => {
       resizeHandler();
     });
+
+    window.addEventListener("load", handleLoad);
     return () => {
       window.removeEventListener("resize", () => {
         resizeHandler();
       });
+
+      window.removeEventListener("load", handleLoad);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -167,6 +181,7 @@ const PlayGround = () => {
         </div>
         {showVictory && <Victory setShowVictory={setShowVictory} />}
         {showDefeat && <Defeat setShowDefeat={setShowDefeat} />}
+        {isLoading && <Loading />}
         {/* <Defeat /> */}
       </div>
     </PlayStateProvider>
