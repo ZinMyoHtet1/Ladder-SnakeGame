@@ -6,14 +6,14 @@ import Header from "./../components/Header.jsx";
 import PlayController from "../components/PlayController.jsx";
 import Defeat from "./Defeat.jsx";
 import Victory from "./Victory.jsx";
+import playControllerReducer from "../reducers/playControllerReducer.js";
+import Loading from "./Loading.jsx";
 
 import gameboard_img from "./../assets/game_board.jpg";
 import red_doe from "./../assets/red-doe-icon.png";
 import green_doe from "./../assets/green-doe-icon.png";
 
 import "./../styles/playground.css";
-import playControllerReducer from "../reducers/playControllerReducer.js";
-import Loading from "./Loading.jsx";
 
 const PlayGround = () => {
   const location = useLocation();
@@ -26,8 +26,8 @@ const PlayGround = () => {
   const initialValues = {
     mode: "",
     turn: 1,
-    player1_position: 0,
-    player2_position: 0,
+    player1_position: 99,
+    player2_position: 76,
     winner: null,
   };
 

@@ -44,6 +44,10 @@ function PlayController() {
     setCanClickRoller(true);
   };
 
+  const checkWinner = () => {
+    dispatch({ type: "CHECK_WINNER" });
+  };
+
   const goOneStep = (steps) => {
     dispatch({ type: "GO_ONE_STEP", payload: steps });
   };
@@ -58,6 +62,7 @@ function PlayController() {
         if (state.winner) return;
 
         setTimeout(() => {
+          checkWinner();
           switchTurn();
         }, 1500 + 500 * (i + 3));
       }
