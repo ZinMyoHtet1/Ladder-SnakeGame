@@ -126,6 +126,7 @@ const PlayGround = () => {
   };
 
   useEffect(() => {
+    document.title = "ladders&snakes | playground";
     checkLoadState();
     const handleLoad = () => checkLoadState();
     // initial check
