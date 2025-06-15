@@ -9,17 +9,16 @@ import "./../styles/header.css";
 
 function Header() {
   const navigate = useNavigate();
-  const { dispatch } = useContext(PlayStateContext);
+  const { state, dispatch } = useContext(PlayStateContext);
   const handleHome = () => {
     navigate("/", { replace: true });
   };
-
   const handleRestart = () => {
-    dispatch({ type: "RESTART_GAME" });
+    if (!state.isPlaying) dispatch({ type: "RESTART_GAME" });
   };
   return (
     <div className="header">
-      <div className="app_name">Ladders & Snakes</div>
+      <div className="app_name">Snakes & Ladders</div>
       <div className="btn_container">
         <div className="home_btn btn" onClick={handleHome}>
           <img src={home_icon} alt="home_icon" />

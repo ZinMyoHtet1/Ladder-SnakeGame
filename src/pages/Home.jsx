@@ -19,7 +19,7 @@ const Home = () => {
   }, []);
   return (
     <div className="page home_page">
-      <h1>Ladders & Snakes Game</h1>
+      <h1>Snakes & Ladders Game</h1>
       <p>Let’s fun with playing game</p>
       <button className="btn" onClick={handlePlayFriend}>
         Play With Friend

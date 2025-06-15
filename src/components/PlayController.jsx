@@ -39,13 +39,19 @@ function PlayController() {
     98: 79,
   };
 
+  const setIsPlaying = (property) => {
+    dispatch({ type: "IS_PLAYING", payload: property });
+  };
+
   const switchTurn = () => {
     dispatch({ type: "SWITCH_TURN" });
     setCanClickRoller(true);
+    // setIsPlaying(false)
   };
 
   const checkWinner = () => {
     dispatch({ type: "CHECK_WINNER" });
+    setIsPlaying(false);
   };
 
   const goOneStep = (steps) => {
@@ -82,6 +88,7 @@ function PlayController() {
     if (!canClickRoller) return;
     setCanClickRoller(false);
     setOnClickRoller(true);
+    setIsPlaying(true);
     let randomNumber;
     const getRandomNumber = () => {
       const rn = Math.floor(Math.random() * 6);

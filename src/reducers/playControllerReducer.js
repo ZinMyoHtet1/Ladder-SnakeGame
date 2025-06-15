@@ -4,6 +4,7 @@ const initialState = {
   player1_position: 0,
   player2_position: 0,
   winner: null,
+  isPlaying: false,
 };
 
 function playControllerReducer(state, action) {
@@ -12,6 +13,11 @@ function playControllerReducer(state, action) {
       return {
         ...state,
         mode: action.payload,
+      };
+    case "IS_PLAYING":
+      return {
+        ...state,
+        isPlaying: action.payload,
       };
     case "SWITCH_TURN":
       if (state.winner) return state;
